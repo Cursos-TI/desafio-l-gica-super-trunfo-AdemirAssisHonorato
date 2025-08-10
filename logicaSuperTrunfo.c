@@ -4,8 +4,21 @@
 
 NOME: ADEMIR DE ASSIS DA SILVA GONÇALVES JUNIOR CURSO: ENGENHARIA DE SOFTWARE
 
-OBSERVAÇÕES: CONSEGUI ARRUMAR O SCANF PARA LER MAIS DE UM NOME.
-ESPECIFICADORES COLOCADOS COMO SOLICITADO
+ESPECIFICADOR UL ARRUMADO
+MULTIPLICAÇÃO NO SUPER PODER TROCADO POR ADIÇÃO
+ADICIONADO 1000000000.0f no calculo do pib
+
+ctrl c + ctrl v doque é pedido no site SAVA
+
+Comparação de cartas (Atributo: População):
+ 
+
+Carta 1 - São Paulo (SP): 12.300.000
+
+Carta 2 - Rio de Janeiro (RJ): 6.000.000
+
+Resultado: Carta 1 (São Paulo) venceu!
+
 */
 
 int main(){
@@ -30,7 +43,7 @@ printf("Insira o nome da cidade\n");
 scanf(" %[^\n]", cidade);
 
 printf("Digite o numero da população\n");
-scanf("%ul", &populacao);
+scanf("%lu", &populacao);
 
 printf("Digite a área:\n");
 scanf("%f", &area);
@@ -57,7 +70,7 @@ printf("Insira o nome da cidade\n");
 scanf(" %[^\n]", cidade_);
 
 printf("Digite o numero da população\n");
-scanf("%ul", &populacao_);
+scanf("%lu", &populacao_);
 
 printf("Digite a área:\n");
 scanf("%f", &area_);
@@ -73,11 +86,11 @@ scanf("%d", &ponto_turistico_);
 den_pop1 = (float)(populacao / area);
 den_pop2 = (float)(populacao_ / area_);
 
-pib_per1 = (float)(pib / populacao);
-pib_per2 = (float)(pib_ / populacao_);
+pib_per1 = (float)((pib * 1000000000.0f) / populacao);
+pib_per2 = (float)((pib_ * 1000000000.0f) / populacao_);
 
-super_poder = (float)(populacao + area + pib + ponto_turistico + pib_per1) * (1.0 / den_pop1);// AQUI ESTA O CALCULO DO SUPER PODER 1
-super_poder_ = (float)(populacao_ + area_ + pib_ + ponto_turistico_ + pib_per2) * (1.0 / den_pop2);// AQUI ESTA O CALCULO DO SUPER PODER 2
+super_poder = (float)(populacao + area + pib + ponto_turistico + pib_per1) + (1.0 / den_pop1);// AQUI ESTA O CALCULO DO SUPER PODER 1
+super_poder_ = (float)(populacao_ + area_ + pib_ + ponto_turistico_ + pib_per2) + (1.0 / den_pop2);// AQUI ESTA O CALCULO DO SUPER PODER 2
 
 printf("\n"); //ESTA É UMA QUEBRA DE LINHA
 printf("Carta1\n");
@@ -85,7 +98,7 @@ printf("\n"); //ESTA É UMA QUEBRA DE LINHA
 printf("Estado:%s\n", estado);
 printf("Codigo: %s\n", codigo);
 printf("Nome da cidade: %s\n", cidade);
-printf("População: %u milhões\n", populacao);
+printf("População: %lu milhões\n", populacao);
 printf("Área: %.2f km²\n", area);
 printf("PIB:%.2f R$\n", pib);
 printf("Pontos Turisticos:%d\n", ponto_turistico);
@@ -101,7 +114,7 @@ printf("\n"); //ESTA É UMA QUEBRA DE LINHA
 printf("Estado:%s\n", estado_);
 printf("Codigo: %s\n", codigo_);
 printf("Nome da cidade: %s\n", cidade_);
-printf("População: %u milhões\n", populacao_);
+printf("População: %lu milhões\n", populacao_);
 printf("Área: %.2f km²\n", area_);
 printf("PIB: %.2f R$\n", pib_);
 printf("Pontos Turisticos: %d\n", ponto_turistico_);
@@ -112,7 +125,7 @@ printf("Super Poder: %f\n", super_poder);
 // AQUI ESTA A COMPARAÇÃO BOOLEANA SIMPLES
 printf("\n"); //ESTA É UMA QUEBRA DE LINHA
 printf("RESULTADO COMPARAÇÃO!\n");
-printf("Populacao A > Populacao B: %d\n", populacao > populacao_);
+printf("Populacao A > Populacao B: %lu\n", populacao > populacao_);
 printf("Area A > Area B: %d\n", area > area_);
 printf("Pib A > Pib B: %d\n", pib > pib_);
 printf("Pontos turisticos A > Pontos turisticos B: %d\n", ponto_turistico > ponto_turistico_);
@@ -125,7 +138,7 @@ printf("Atributo escolhido para Vitoria = SUPER PODER\n");
 //FUNÇÃO DE COMPARAÇÃO SIMPLES, CRITÉRIO DE DESEMPATE ESCOLHIDO SUPER PODER
 if(super_poder > super_poder_){
     printf("CARTA 1 VENCEU!!!");
-}if(super_poder == super_poder_){
+}else if(super_poder == super_poder_){
     printf("EMPATE!!!");
 }else{
     printf("CARTA 2 VENCEU!!!");
