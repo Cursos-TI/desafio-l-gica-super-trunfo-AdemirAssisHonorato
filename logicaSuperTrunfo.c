@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <string.h>
 
-/* ATIVIDADE SUPER TRUNFO MESTRE
+/* Implementando Comparações Avançadas com Atributos Múltiplos em C
 
 NOME: ADEMIR DE ASSIS DA SILVA GONÇALVES JUNIOR CURSO: ENGENHARIA DE SOFTWARE
   
